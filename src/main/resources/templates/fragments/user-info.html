@@ -1,0 +1,7 @@
+<div th:fragment="userInfo" class="user-profile-section">
+    <!-- Este fracmento mostrara los datos del usuario actual -->
+    <div class="#user-info-card">
+        <h2 th:text="${user.name}">Nombre del Usuario</h2>
+        <p th:text="${user.email}">correo@ejemplo.com</p>
+    </div>
+</div>
