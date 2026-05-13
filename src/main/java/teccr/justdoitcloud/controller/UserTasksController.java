@@ -53,7 +53,6 @@ public class UserTasksController {
         //Obtenemos el usuario y sus tareas desde la sesión
         model.addAttribute("user", user);
         model.addAttribute("tasks", user.getTasks()); //se obtiene la lista de tareas directamente del usuario
-
         return "user-report";
     }
 

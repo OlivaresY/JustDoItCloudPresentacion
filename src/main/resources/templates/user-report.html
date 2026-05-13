@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Reporte de Tareas</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
     <div class="container">
@@ -23,9 +23,9 @@
                 <tbody>
                     <!-- Recorremos todas las tareas en formato tabla -->
                     <tr th:each="task : ${tasks}">
-                        <td th:text="${task.title}" style="padding: 10px; border: 1px solid #ddd;">Tarea</td>
+                        <td th:text="${task.description}" style="padding: 10px; border: 1px solid #ddd;">Tarea</td>
                         <td th:text="${task.status}" style="padding: 10px; border: 1px solid #ddd;">Estado</td>
-                        <td th:text="${task.dueDate != null ? task.dueDate : 'No especificada'}"
+                        <td th:text="${task.deadline != null ? task.deadline : 'No especificada'}"
                             style="padding: 10px; border: 1px solid #ddd;">Fecha</td>
                     </tr>
                 </tbody>
