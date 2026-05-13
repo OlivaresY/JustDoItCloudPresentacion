@@ -47,4 +47,14 @@ public class UserTasksController {
         user.addTask(newTask);
         return "redirect:/user/tasks";
     }
+
+    @GetMapping("/report")
+    public String showTaskReport(Model model, @ModelAttribute("user") User user){
+        //Obtenemos el usuario y sus tareas desde la sesión
+        model.addAttribute("user", user);
+        model.addAttribute("tasks", user.getTasks()); //se obtiene la lista de tareas directamente del usuario
+
+        return "user-report";
+    }
+
 }
