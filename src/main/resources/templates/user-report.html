@@ -8,7 +8,6 @@
 <body>
 <div class="container">
     <h1>Reporte de tareas del usuario</h1>
-    <!-- Reutilizacion del fragmento-->
     <div th:replace="~{fragments/user-info :: userInfo}"></div>
 
     <div class="report-table-container" style="margin-top: 20px;">
@@ -21,16 +20,11 @@
             </tr>
             </thead>
             <tbody>
-            <!-- Recorremos todas las tareas en formato tabla -->
             <tr th:each="task : ${tasks}">
                 <td th:text="${task.description}" style="padding: 10px; border: 1px solid #ddd;">Tarea</td>
 
-                <!-- Lógica de color directa para asegurar que se vea como en la página inicial -->
                 <td th:text="${task.status}"
-                    th:style="'padding: 10px; border: 1px solid #ddd; font-weight: bold; color: white; background-color: ' +
-                             (${task.status.name() == 'PENDING'} ? '#f0ad4e' :
-                             (${task.status.name() == 'INPROGRESS'} ? '#5bc0de' :
-                             (${task.status.name() == 'DONE'} ? '#5cb85c' : '#ffffff'))">
+                    th:style="|padding: 10px; border: 1px solid #ddd; font-weight: bold; color: white; background-color: ${task.status.name() == 'PENDING' ? '#f0ad4e' : (task.status.name() == 'INPROGRESS' ? '#5bc0de' : (task.status.name() == 'DONE' ? '#5cb85c' : '#ffffff'))}|">
                     Estado
                 </td>
 
